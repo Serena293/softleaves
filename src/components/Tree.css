@@ -1,0 +1,34 @@
+/* src/components/Tree.css */
+
+.tree {
+  position: relative; 
+  width: 150px;       
+  height: 200px;      
+  margin: 3rem auto;  
+}
+
+.trunk {
+  position: absolute;
+  bottom: 0;          
+  left: 83%;        
+  /* transform: translateX(200%);  */
+  width: 20px;     
+  height: 100px;     
+  background-color: brown;
+  border-radius: 4px; 
+  z-index: 2;
+}
+
+.foliage {
+  position: absolute;
+  bottom: 100px;   
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;      
+  height: 120px;      
+  /* background-color: green; */
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: rotate(315deg);
+}

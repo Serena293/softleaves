@@ -1,0 +1,40 @@
+/* MemoryGameCard.css */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  /* max-width: 800px; */
+  margin: 40px auto;
+}
+
+.mg-card {
+   position: relative;
+}
+
+.mg-card img {
+  width: 100%;  
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  aspect-ratio: 1/1;
+}
+
+.front-card {
+  transform: rotateY(90deg);
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.flipped .front-card {
+  transform: rotateY(0deg);
+}
+
+.back-card {
+  transition: all 0.3s ease;
+}
+/* 
+.flipped .back-card {
+  transform: rotateY(90deg);
+} */
+

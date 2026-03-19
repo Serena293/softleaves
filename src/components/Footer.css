@@ -1,0 +1,9 @@
+/* src/components/Footer.css */
+
+.footer {
+  text-align: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #FF8B5A, #FFB88C); 
+  color: #fff;
+  border-top: 2px solid #FF8B5A;
+}

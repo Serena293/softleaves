@@ -1,0 +1,100 @@
+// src/components/MemoryGame.jsx
+import { useEffect, useState } from "react";
+import "./MemoryGame.css";
+import MemoryGameCard from "./MemoryGameCard";
+
+const cardImages = [
+  { src: "/images/clouds.png", marched: false },
+  { src: "/images/lightining.png", marched: false },
+  { src: "/images/moon.png", marched: false },
+  { src: "/images/star.png", marched: false },
+  { src: "/images/sun.png", marched: false },
+  { src: "/images/tree.png", marched: false },
+];
+
+export default function MemoryGame() {
+  const [cards, setCards] = useState([]);
+  const [turns, setTurns] = useState(0);
+
+  const [choiceOne, setChoiceOne] = useState(null);
+  const [choiceTwo, setChoiceTwo] = useState(null);
+
+  const shuffleArray = (array) => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+  };
+
+  const shuffleCards = () => {
+    const duplicatedCards = [...cardImages, ...cardImages].map((card) => ({
+      ...card,
+      id: Math.random(),
+    }
+));
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setCards(shuffleArray(duplicatedCards));
+    setTurns(0);
+  };
+
+  const handleChoice = (card) => {
+    //console.log(card);
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  };
+  const resetTurn = () => {
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setTurns((prevTurn) => prevTurn + 1);
+  };
+  //compere selected cards
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.src === choiceTwo.src) {
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
+            if (card.src === choiceOne.src) { 
+              return { ...card, matched: true };
+           
+            } else {
+              return card;
+            }
+          });
+        });
+        //return function should not be inside useEffect ?!
+        resetTurn();
+      } else {
+        resetTurn();
+      }
+    }
+  }, [choiceOne, choiceTwo]);
+
+  useEffect(()=>{
+    shuffleCards()
+  },[])
+
+  //console.log(cards)
+
+  //   console.log(cards, turns);
+  return (
+    <section className="main-section">
+      <h1>Memory Game</h1>
+      <button onClick={shuffleCards}>New Game</button>
+      <div className="card-grid">
+        {cards.map((card) => (
+          <MemoryGameCard
+            key={card.id}
+            card={card}
+            handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched}
+          />
+        ))}
+      </div>
+      <div>
+        <p>Turn played: {turns}</p>
+      </div>
+    </section>
+  );
+}
