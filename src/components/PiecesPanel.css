@@ -1,0 +1,42 @@
+.pieces-grid {
+  display: grid;
+    grid-template-columns: repeat(3, minmax(5rem, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.piece {
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 0.3rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+
+.piece img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+
+.piece:hover {
+  border-color: #888;
+}
+
+.piece.selected {
+  border-color: #2a7fff;
+  background-color: #e6f0ff;
+}
+
+/* keyboard focus */
+.piece:focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+}
