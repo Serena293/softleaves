@@ -46,7 +46,7 @@ export default function Home() {
 
         <div className="forest">
      
-          <Tree foliageColor="#FF8B5A" />
+          <Tree foliageColor="#FF8B5A"  />
           <Tree foliageColor="#FFA500" />
           <Tree foliageColor="#9ACD32" />
         </div>

@@ -4,12 +4,14 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  /* max-width: 800px; */
+  max-width: 400px;
   margin: 40px auto;
 }
 
 .mg-card {
    position: relative;
+  
+ 
 }
 
 .mg-card img {

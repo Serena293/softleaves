@@ -10,7 +10,7 @@ export default function Navbar() {
       <ul className="nav-links">
         <li><Link to="memorygame">Memory Game</Link></li>
         <li><Link to="puzzle">Puzzle</Link></li>
-        <li><a href="#sensory">Sensory Mode</a></li>
+        <li><Link to="sensorymode">Sensory Mode</Link></li>
       </ul>
     </nav>
   );

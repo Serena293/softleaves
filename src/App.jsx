@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import MemoryGame from "./components/MemoryGame";
 import Puzzle from "./components/Puzzle";
+import SensoryMode from "./components/SensoryMode";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/memorygame" element={<MemoryGame />} />
             <Route path="/puzzle" element={<Puzzle/>}/> 
+            <Route path= "/sensorymode" element={<SensoryMode/>}/>
           </Routes>{" "}
         </main>
         <Footer />

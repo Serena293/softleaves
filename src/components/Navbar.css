@@ -7,6 +7,11 @@
   padding: 1rem 2rem;
   background: linear-gradient(90deg, #FF8B5A, #FFB88C); 
   color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  
 }
 
 .logo {
@@ -32,4 +37,11 @@
 
 .nav-links a:hover {
   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

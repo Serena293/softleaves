@@ -14,11 +14,12 @@ body {
   font-family: Arial, sans-serif;
   background-color: #fefbf3;
   color: #333;
-  line-height: 1.5;
+  /* line-height: 1.5; */
 }
 
 main {
   flex: 1;
+  padding-top: 100px;
 }
 
 a {

@@ -1,0 +1,68 @@
+.sensory-mode-main-section {
+  position: relative;
+  height: 70vh;
+  width: 100%;
+  overflow: hidden;
+
+  background-image: url("/images/sensory/bg-small.png");
+  /* background-size: 80% 90%;
+  background-position: right bottom;
+  background-repeat: repeat-x; */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.leaf {
+  position: absolute;
+  top: -50px;
+  pointer-events: none;
+
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.sensory-controls {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.sensory-controls button {
+  padding: 0.5rem 1rem;
+  background-color: #ff8b5a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+.paused .leaf {
+  animation-play-state: paused;
+}
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) translateX(60px) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 767px) {
+  .sensory-mode-main-section {
+    background-image: url("/images/sensory/bg-desktop.png");
+    /* background-size: 60% auto;
+    background-position: right bottom; */
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+  }
+}

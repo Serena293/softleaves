@@ -1,14 +1,11 @@
 /* MemoryGame.css */
 .main-section {
   max-width: 500px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   margin: 1rem auto;
   text-align: center;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
+  
 }
 
 .main-section h1 {
