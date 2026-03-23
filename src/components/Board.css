@@ -1,12 +1,3 @@
-.board-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.3rem;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
 .board-cell {
   aspect-ratio: 1 / 1;
   background-color: #fff;
@@ -41,31 +32,4 @@
   outline: 3px solid black;
   outline-offset: 2px;
   background-color: #ffe0b5;
-}
-
-@media (min-width: 600px) {
-  .board-grid {
-    gap: 0.5rem;
-    max-width: 400px;
-    height: auto;
-  }
-}
-
-@media (min-width: 900px) {
-  .board-grid {
-    /* max-width: 450px; */
-    gap: 0.5rem;
-    height: auto;
-  }
-
-  .board-cell {
-    max-width: 120px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .board-grid {
-    max-width: 500px;
-    gap: 1rem;
-  }
 }

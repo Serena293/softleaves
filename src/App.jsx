@@ -6,9 +6,11 @@ import Home from "./components/Home";
 import MemoryGame from "./components/MemoryGame";
 import Puzzle from "./components/Puzzle";
 import SensoryMode from "./components/SensoryMode";
+import {AudioProvider} from "./context/AudioProvider"
 
 function App() {
   return (
+    <AudioProvider>
     <div id="root">
       <BrowserRouter>
         <Navbar />
@@ -24,6 +26,7 @@ function App() {
         <Footer />
       </BrowserRouter>
     </div>
+    </AudioProvider>
   );
 }
 
