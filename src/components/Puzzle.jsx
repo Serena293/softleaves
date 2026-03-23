@@ -24,20 +24,17 @@ export default function Puzzle() {
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [completedFade, setCompletedFade] = useState(false);
 
-  // selezione pezzo dalla sidebar o dalla board
   const handleSelectPiece = (piece, source, originalIndex = null) => {
     setSelectedPiece((prev) =>
-      prev?.id === piece.id ? null : { ...piece, source, originalIndex }
+      prev?.id === piece.id ? null : { ...piece, source, originalIndex },
     );
   };
 
-  // piazza, sposta o rimetti nella sidebar
   const handlePlacePiece = (targetIndex = null) => {
     if (!selectedPiece) return;
 
     const newBoard = [...board];
 
-    // se targetIndex === null → rimetti nella sidebar
     if (targetIndex === null && selectedPiece.source === "board") {
       setPieces((prev) => [...prev, selectedPiece]);
       newBoard[selectedPiece.originalIndex] = null;
@@ -45,7 +42,6 @@ export default function Puzzle() {
     } else if (targetIndex !== null) {
       const targetCell = board[targetIndex];
 
-      // piazza in cella vuota
       if (!targetCell) {
         newBoard[targetIndex] = { ...selectedPiece };
         if (selectedPiece.source === "sidebar") {
@@ -54,12 +50,14 @@ export default function Puzzle() {
           newBoard[selectedPiece.originalIndex] = null;
         }
       } else {
-        // scambio pezzi
         newBoard[targetIndex] = { ...selectedPiece };
         if (selectedPiece.source === "board") {
           newBoard[selectedPiece.originalIndex] = targetCell;
         } else if (selectedPiece.source === "sidebar") {
-          setPieces((prev) => [...prev.filter((p) => p.id !== selectedPiece.id), targetCell]);
+          setPieces((prev) => [
+            ...prev.filter((p) => p.id !== selectedPiece.id),
+            targetCell,
+          ]);
         }
       }
       setBoard(newBoard);
@@ -68,8 +66,9 @@ export default function Puzzle() {
     setSelectedPiece(null);
   };
 
-  const isCompleted =
-    board.every((cell, index) => cell && cell.correctPosition === index);
+  const isCompleted = board.every(
+    (cell, index) => cell && cell.correctPosition === index,
+  );
 
   useEffect(() => {
     if (isCompleted) {
@@ -89,9 +88,15 @@ export default function Puzzle() {
 
   return (
     <>
-      <h1>Puzzle</h1>
+      {!isCompleted && (
+        <div className="puzzle-title">
+          <h1>Puzzle</h1>
+          <p>Select a piece, then place it on the board</p>
+        </div>
+      )}
+
       <section className="puzzle-main-section">
-        <div className="pieces-div">
+        {!isCompleted &&<div className="pieces-div">
           {!isCompleted && (
             <PiecesPanel
               pieces={pieces}
@@ -101,7 +106,7 @@ export default function Puzzle() {
               onSelectPiece={(piece) => handleSelectPiece(piece, "sidebar")}
             />
           )}
-     
+
           {!isCompleted && selectedPiece?.source === "board" && (
             <button
               className="return-to-sidebar"
@@ -110,15 +115,18 @@ export default function Puzzle() {
               Return piece to sidebar
             </button>
           )}
-        </div>
+        </div>}
 
         <div className="board-div">
-          {!isCompleted && <p>Select a piece, then place it on the board</p>}
           {!isCompleted && (
             <Board
               board={board}
-              selectedPiece={selectedPiece?.source === "board" ? selectedPiece : null}
-              onSelectPiece={(piece, index) => handleSelectPiece(piece, "board", index)}
+              selectedPiece={
+                selectedPiece?.source === "board" ? selectedPiece : null
+              }
+              onSelectPiece={(piece, index) =>
+                handleSelectPiece(piece, "board", index)
+              }
               onPlacePiece={handlePlacePiece}
             />
           )}

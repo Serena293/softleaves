@@ -1,42 +1,57 @@
 .pieces-grid {
   display: grid;
-    grid-template-columns: repeat(3, minmax(5rem, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
   width: 100%;
-  max-width: 400px;
-  margin: auto;
-  padding: 1rem;
+  margin: 0 auto;
 }
 
 .piece {
-  background: #fff;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  padding: 0.3rem;
+  background-color: #fff;
+  border: 2px solid #FF8C5B;
+  border-radius: 8px;
+  padding: 0.25rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
   transition: all 0.2s ease;
 }
 
-
 .piece img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
   border-radius: 6px;
 }
 
-
 .piece:hover {
-  border-color: #888;
+  transform: scale(1.05);
+  background-color: #f3e2cf;
 }
 
 .piece.selected {
-  border-color: #2a7fff;
-  background-color: #e6f0ff;
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+  transform: scale(1.02);
 }
 
-/* keyboard focus */
 .piece:focus-visible {
   outline: 3px solid #ffbf47;
   outline-offset: 2px;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+  .pieces-grid {
+    gap: 0.75rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .pieces-grid {
+    gap: 1rem;
+  }
 }
