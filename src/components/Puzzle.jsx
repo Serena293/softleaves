@@ -70,13 +70,17 @@ export default function Puzzle() {
     (cell, index) => cell && cell.correctPosition === index,
   );
 
+  // This effect synchronizes the "completedFade" state with "isCompleted".
+  // We use a small timeout (50ms) to avoid updating state synchronously during render,
+  // which can trigger React warnings about cascading renders.
+  // When "isCompleted" changes, we schedule "setCompletedFade" to run after the timeout.
+  // The cleanup function clears the timeout if "isCompleted" changes again before the timeout completes.
   useEffect(() => {
-    if (isCompleted) {
-      const timeout = setTimeout(() => setCompletedFade(true), 50);
-      return () => clearTimeout(timeout);
-    } else {
-      setCompletedFade(false);
-    }
+    const timeout = setTimeout(() => {
+      setCompletedFade(isCompleted);
+    }, 50);
+
+    return () => clearTimeout(timeout);
   }, [isCompleted]);
 
   const handleReset = () => {
@@ -96,26 +100,28 @@ export default function Puzzle() {
       )}
 
       <section className="puzzle-main-section">
-        {!isCompleted &&<div className="pieces-div">
-          {!isCompleted && (
-            <PiecesPanel
-              pieces={pieces}
-              selectedPiece={
-                selectedPiece?.source === "sidebar" ? selectedPiece : null
-              }
-              onSelectPiece={(piece) => handleSelectPiece(piece, "sidebar")}
-            />
-          )}
+        {!isCompleted && (
+          <div className="pieces-div">
+            {!isCompleted && (
+              <PiecesPanel
+                pieces={pieces}
+                selectedPiece={
+                  selectedPiece?.source === "sidebar" ? selectedPiece : null
+                }
+                onSelectPiece={(piece) => handleSelectPiece(piece, "sidebar")}
+              />
+            )}
 
-          {!isCompleted && selectedPiece?.source === "board" && (
-            <button
-              className="return-to-sidebar"
-              onClick={() => handlePlacePiece(null)}
-            >
-              Return piece to sidebar
-            </button>
-          )}
-        </div>}
+            {!isCompleted && selectedPiece?.source === "board" && (
+              <button
+                className="return-to-sidebar"
+                onClick={() => handlePlacePiece(null)}
+              >
+                Return piece to sidebar
+              </button>
+            )}
+          </div>
+        )}
 
         <div className="board-div">
           {!isCompleted && (
