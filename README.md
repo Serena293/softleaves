@@ -1,16 +1,47 @@
-# React + Vite
+# SoftLeaves
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a small front-end project focused on creating simple, accessible and user-friendly digital experiences.
 
-Currently, two official plugins are available:
+The project includes a set of interactive features designed with clarity, calm interaction and low sensory load in mind.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌿 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🧠 Memory Game
+A classic memory card game with different difficulty levels.
+- Simple and clean UI
+- Focus on clarity and low cognitive load
 
-## Expanding the ESLint configuration
+### 🧩 Puzzle
+A basic image puzzle where users can reconstruct an image.
+- Visual interaction
+- Designed to be intuitive and not overwhelming
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🍂 Sensory Mode
+A calm, non-competitive experience:
+- Animated falling leaves
+- Soft, slow movement
+- Option to pause animations
+
+---
+
+## 🎯 Focus
+
+This project focuses on:
+- Accessibility
+- Simplicity
+- Predictable interactions
+- Reducing sensory overload
+
+---
+
+## 🛠️ Tech Stack
+
+- HTML
+- CSS
+- JavaScript
+- React
+
+---
+
