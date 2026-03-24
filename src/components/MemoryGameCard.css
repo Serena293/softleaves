@@ -40,3 +40,8 @@
   transform: rotateY(90deg);
 } */
 
+.div-settings-panel{
+  position: relative;
+  top: 10px;
+}
+

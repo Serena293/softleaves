@@ -1,11 +1,9 @@
-/* src/components/Home.css */
-
+/* home.css */
 .home {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
   font-family: Arial, sans-serif;
-
 }
 
 .hero {
@@ -23,7 +21,7 @@
   color: #555;
 }
 
-/* Cards layout */
+/* CARDS */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -34,16 +32,31 @@
 .card {
   flex: 1 1 calc(33% - 1rem);
   min-width: 250px;
-  background: linear-gradient(135deg, #FF8B5A, #FFB88C);
+  background: linear-gradient(135deg, #ff8b5a, #ffb88c);
   color: #fff;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.4s linear;
+  position: relative;
+  transform-style: preserve-3d;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.02);
+}
+
+.card.rotated {
+  transform: rotateX(180deg);
+}
+
+.card-content {
+  transform-style: preserve-3d;
+}
+
+.card.rotated .card-content {
+  transform: rotateX(180deg);
 }
 
 .card h3 {
@@ -55,20 +68,37 @@
   line-height: 1.4;
 }
 
-.mission-section{
-    margin-top: 3rem;
-    margin-bottom: 0.5rem;
-    display: flex;
+.backcard {
+  margin-top: 1rem;
+}
 
+.mission-section {
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+  display: flex;
 }
 
 .forest {
   display: flex;
-  justify-content: center; 
-  align-items: flex-end;   
+  justify-content: center;
+  align-items: flex-end;
   margin-top: 2rem;
 }
 
+.card-button {
+  background-color: transparent;
+  border: none;
+  margin-top: 1rem;
+}
+
+.card-button a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
 
 @media (max-width: 768px) {
   .cards-container {

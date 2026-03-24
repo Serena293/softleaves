@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PiecesPanel from "./PiecesPanel";
 import Board from "./Board";
 import "./Puzzle.css";
+import SettingsPanel from "./SettingsPanel";
 
 const initialPieces = Array.from({ length: 9 }, (_, i) => ({
   id: i,
@@ -92,6 +93,9 @@ export default function Puzzle() {
 
   return (
     <>
+   <div className="div-settings-panel">
+    <SettingsPanel/>
+    </div>
       {!isCompleted && (
         <div className="puzzle-title">
           <h1>Puzzle</h1>

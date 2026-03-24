@@ -2,8 +2,17 @@
 import React from "react";
 import "./Home.css";
 import Tree from "./Tree";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import SensoryMode from "./SensoryMode";
+import Puzzle from "./Puzzle";
+import MemoryGame from "./MemoryGame";
 
 export default function Home() {
+  const [flipMemory, setFlipMemory] = useState(false);
+  const [flipPuzzle, setFlipPuzzle] = useState(false);
+  const [flipSensory, setFlipSensory] = useState(false);
+
   return (
     <main className="home">
       <section className="hero">
@@ -12,31 +21,75 @@ export default function Home() {
       </section>
 
       <section className="cards-container">
-        <div className="card" id="memory">
-          <h3>Memory Game</h3>
-          <p>
-            Exercise your attention and focus with a calm, predictable memory
-            matching game.
-          </p>
+        <div
+          className={`card ${flipMemory ? "rotated" : ""}`}
+          onClick={() => setFlipMemory(!flipMemory)}
+        >
+          <div className="card-content">
+            {!flipMemory ? (
+              <>
+                <h3>Memory Game</h3>
+                <p>
+                  Exercise your attention and focus with a calm, predictable
+                  memory matching game.
+                </p>
+              </>
+            ) : (
+              <div className="backcard">
+                <button className="card-button">
+                  <Link to="/memorygame">Play Now</Link>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="card" id="sequences">
-          <h3>Sequences</h3>
-          <p>Repeat gentle sequences in a structured, relaxing environment.</p>
+        <div
+          className={`card ${flipPuzzle ? "rotated" : ""}`}
+          onClick={() => setFlipPuzzle(!flipPuzzle)}
+        >
+          <div className="card-content">
+            {!flipPuzzle ? (
+              <>
+                <h3>Puzzle</h3>
+                <p>Build the image using the available pieces.</p>
+              </>
+            ) : (
+              <button className="card-button">
+                <Link to="/puzzle" element={<Puzzle />}>
+                  Play Now
+                </Link>
+              </button>
+            )}
+          </div>
         </div>
 
-        <div className="card" id="sensory">
-          <h3>Sensory Mode</h3>
-          <p>
-            Enjoy a soothing autumn tree animation with falling leaves. Adjust
-            speed, sound, and visuals for a stress-free experience.
-          </p>
+        <div
+          className={`card ${flipSensory ? "rotated" : ""}`}
+          onClick={() => setFlipSensory(!flipSensory)}
+        >
+          <div className="card-content">
+            {!flipSensory ? (
+              <div>
+                <h3>Sensory Mode</h3>
+                <p>
+                  Enjoy a soothing autumn tree animation with falling leaves and relaxing sound.
+                </p>
+              </div>
+            ) : (
+              <button className="card-button">
+                <Link to="/sensorymode" element={<SensoryMode />}>
+                  Enter Now
+                </Link>
+              </button>
+            )}
+          </div>
         </div>
       </section>
 
       <section className="mission-section">
         <div>
-          <h3> Why I made this</h3>
+          <h3>Why I made this</h3>
           <p>
             SoftLeaves is designed with accessibility in mind. I prioritize
             predictable interactions, soft colors, and user controls to create a
@@ -45,8 +98,7 @@ export default function Home() {
         </div>
 
         <div className="forest">
-     
-          <Tree foliageColor="#FF8B5A"  />
+          <Tree foliageColor="#FF8B5A" />
           <Tree foliageColor="#FFA500" />
           <Tree foliageColor="#9ACD32" />
         </div>

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import "./MemoryGame.css";
 import MemoryGameCard from "./MemoryGameCard";
+import SettingsPanel from "./SettingsPanel";
 
 const cardImages = [
   { src: "/images/clouds.png", marched: false },
@@ -10,16 +11,9 @@ const cardImages = [
   { src: "/images/star.png", marched: false },
   { src: "/images/sun.png", marched: false },
   { src: "/images/tree.png", marched: false },
+
 ];
-
-export default function MemoryGame() {
-  const [cards, setCards] = useState([]);
-  const [turns, setTurns] = useState(0);
-
-  const [choiceOne, setChoiceOne] = useState(null);
-  const [choiceTwo, setChoiceTwo] = useState(null);
-
-  const shuffleArray = (array) => {
+ const shuffleArray = (array) => {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -27,6 +21,22 @@ export default function MemoryGame() {
     }
     return newArray;
   };
+
+  const getInitialCards = () => {
+  const duplicatedCards = [...cardImages, ...cardImages].map((card) => ({
+    ...card,
+    id: Math.random(),
+  }));
+  return shuffleArray(duplicatedCards);
+};
+export default function MemoryGame() {
+  const [cards, setCards] = useState(getInitialCards());
+  const [turns, setTurns] = useState(0);
+
+  const [choiceOne, setChoiceOne] = useState(null);
+  const [choiceTwo, setChoiceTwo] = useState(null);
+
+ 
 
   const shuffleCards = () => {
     const duplicatedCards = [...cardImages, ...cardImages].map((card) => ({
@@ -49,7 +59,7 @@ export default function MemoryGame() {
     setChoiceTwo(null);
     setTurns((prevTurn) => prevTurn + 1);
   };
-  //compere selected cards
+  
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       if (choiceOne.src === choiceTwo.src) {
@@ -63,7 +73,6 @@ export default function MemoryGame() {
             }
           });
         });
-        //return function should not be inside useEffect ?!
         resetTurn();
       } else {
         resetTurn();
@@ -71,14 +80,12 @@ export default function MemoryGame() {
     }
   }, [choiceOne, choiceTwo]);
 
-  useEffect(()=>{
-    shuffleCards()
-  },[])
 
-  //console.log(cards)
-
-  //   console.log(cards, turns);
   return (
+    <>
+    <div className="div-settings-panel">
+    <SettingsPanel />
+    </div>
     <section className="main-section">
       <h1>Memory Game</h1>
       <button onClick={shuffleCards}>New Game</button>
@@ -96,5 +103,7 @@ export default function MemoryGame() {
         <p>Turn played: {turns}</p>
       </div>
     </section>
+    
+    </>
   );
 }

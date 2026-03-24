@@ -1,0 +1,146 @@
+/* SettingsPanel.css */
+
+.sensory-panel-wrapper {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Panel container */
+.sensory-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+}
+
+/* Hidden state */
+.sensory-controls.closed {
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Buttons */
+.controls-btn {
+  padding: 0.5rem 1rem;
+  background-color: #ff8b5a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.controls-btn:hover {
+  background-color: rgb(233, 204, 151);
+}
+
+/* Label styling */
+.controls-label {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* Toggle button below panel */
+.toggle-panel-btn {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #ff8b5a;
+  color: black;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.toggle-panel-btn:hover {
+  background-color: rgb(233, 204, 151);
+  border: none;
+}
+
+/* When panel is closed, move toggle button up */
+.sensory-controls.closed + .toggle-panel-btn {
+  margin-top: 0;
+  transform: translateY(-400%);
+}
+
+.input-controls {
+  margin-right: 0.4rem;
+}
+
+.toggle-wrapper {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.toggle-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #dfe1e4;
+  border-radius: 72px;
+  border: none;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.toggle-input::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  left: -6px;
+  right: -6px;
+}
+
+.toggle-input::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition:
+    left 100ms ease-out,
+    background-color 100ms ease-out;
+}
+
+.toggle-input:hover {
+  background-color: #c9cbcd;
+}
+
+.toggle-input:checked {
+  background-color: #ff9565;
+}
+
+.toggle-input:checked::after {
+  left: 13px;
+}
+
+.toggle-input:checked:hover {
+  background-color: #ffb68a;
+}
+
+.toggle-input:focus-visible {
+  outline: 2px solid #ff9565;
+  outline-offset: 2px;
+}
+
+.div-settings-panel {
+  position: relative;
+  top: 10px;
+}
