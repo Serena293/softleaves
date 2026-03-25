@@ -1,4 +1,4 @@
-import "./App.css";
+import "./index.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,10 +11,10 @@ import {AudioProvider} from "./context/AudioProvider"
 function App() {
   return (
     <AudioProvider>
-    <div id="root">
+
       <BrowserRouter>
         <Navbar />
-        <main>
+        <main >
           {" "}
           <Routes>
             <Route path="/" element={<Home />} />
@@ -25,7 +25,7 @@ function App() {
         </main>
         <Footer />
       </BrowserRouter>
-    </div>
+
     </AudioProvider>
   );
 }

@@ -12,8 +12,8 @@ export default function Home() {
   const [flipSensory, setFlipSensory] = useState(false);
 
   return (
-    <main className="home">
-      <VolumeIcon/>
+    <div className="home">
+      <VolumeIcon />
       <section className="hero">
         <h2>Welcome to SoftLeaves</h2>
         <p>Your accessible interactive experiences start here.</p>
@@ -23,8 +23,13 @@ export default function Home() {
         <div
           className={`card ${flipMemory ? "rotated" : ""}`}
           onClick={() => setFlipMemory(!flipMemory)}
-         role="button"
-          aria-label={flipMemory ? "Memory game card flipped, click to see front" : "Memory game card, click to play"}>
+          role="button"
+          aria-label={
+            flipMemory
+              ? "Memory game card flipped, click to see front"
+              : "Memory game card, click to play"
+          }
+        >
           <div className="card-content" role="button">
             {!flipMemory ? (
               <>
@@ -48,7 +53,11 @@ export default function Home() {
           className={`card ${flipPuzzle ? "rotated" : ""}`}
           onClick={() => setFlipPuzzle(!flipPuzzle)}
           role="button"
-          aria-label={flipPuzzle? "Puzzle card flipped, click to se front of the card" : "Puzzle Card, click to play"}
+          aria-label={
+            flipPuzzle
+              ? "Puzzle card flipped, click to se front of the card"
+              : "Puzzle Card, click to play"
+          }
         >
           <div className="card-content">
             {!flipPuzzle ? (
@@ -57,11 +66,13 @@ export default function Home() {
                 <p>Build the image using the available pieces.</p>
               </>
             ) : (
-              <button className="card-button">
-                <Link to="/puzzle" element={<Puzzle />}>
-                  Play Now
-                </Link>
-              </button>
+              <div className="backcard">
+                <button className="card-button">
+                  <Link to="/puzzle" element={<Puzzle />}>
+                    Play Now
+                  </Link>
+                </button>
+              </div>
             )}
           </div>
         </div>
@@ -70,7 +81,11 @@ export default function Home() {
           className={`card ${flipSensory ? "rotated" : ""}`}
           onClick={() => setFlipSensory(!flipSensory)}
           role="button"
-          aria-label={flipSensory? "Sensory mode card flipped, click to see front of the card" : "Sensory mode, click to enter"}
+          aria-label={
+            flipSensory
+              ? "Sensory mode card flipped, click to see front of the card"
+              : "Sensory mode, click to enter"
+          }
         >
           <div className="card-content">
             {!flipSensory ? (
@@ -82,11 +97,13 @@ export default function Home() {
                 </p>
               </div>
             ) : (
-              <button className="card-button">
-                <Link to="/sensorymode" element={<SensoryMode />}>
-                  Enter Now
-                </Link>
-              </button>
+              <div className="backcard">
+                <button className="card-button">
+                  <Link to="/sensorymode" element={<SensoryMode />}>
+                    Enter Now
+                  </Link>
+                </button>
+              </div>
             )}
           </div>
         </div>
@@ -101,13 +118,12 @@ export default function Home() {
             calming, inclusive experience for everyone.
           </p>
         </div>
-
         <div className="forest">
           <Tree foliageColor="#FF8B5A" />
           <Tree foliageColor="#FFA500" />
           <Tree foliageColor="#9ACD32" />
         </div>
       </section>
-    </main>
+    </div>
   );
 }

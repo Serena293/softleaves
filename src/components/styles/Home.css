@@ -1,10 +1,12 @@
-/* home.css */
 .home {
   max-width: 900px;
   margin: 2rem auto;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
+  width: 100%;
   font-family: Arial, sans-serif;
 }
+
+
 
 .hero {
   text-align: center;
@@ -49,6 +51,8 @@
 
 .card.rotated {
   transform: rotateX(180deg);
+  background-image: url("/images/cover.png");
+  background-size: cover;
 }
 
 .card-content {
@@ -68,21 +72,24 @@
   line-height: 1.4;
 }
 
-.backcard {
-  margin-top: 1rem;
-}
-
 .mission-section {
   margin-top: 3rem;
   margin-bottom: 0.5rem;
   display: flex;
+
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .forest {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: flex-start;
+  /* align-items: flex; */
   margin-top: 2rem;
+  margin-left: 0;
+  
 }
 
 .card-button {
@@ -96,17 +103,47 @@
   text-decoration: none;
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.2);
+  /* background-color: rgba(255, 255, 255, 0.2); */
   border-radius: 5px;
+  font-size: 1.5rem;
 }
-
+.mission-section > div:first-child {
+  flex: 1;
+  min-width: 200px;
+}
 @media (max-width: 768px) {
   .cards-container {
     flex-direction: column;
     gap: 1.5rem;
   }
+    .home {
+    max-width: none;
+    margin: 0;
+    padding: 2rem 1rem;
+    width: 100%;
+  }
+  .forest > div {
+    transform: scale(0.8);
+  }
 
   .card {
     flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .volume-icon-wrapper {
+    top: 60px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .forest {
+    gap: 0.25rem;
+  }
+
+  .forest > div {
+    transform: scale(0.7);
   }
 }
