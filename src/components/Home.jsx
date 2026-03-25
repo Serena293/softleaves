@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import SensoryMode from "./SensoryMode";
 import Puzzle from "./Puzzle";
-
+import VolumeIcon from "./VolumeIcon";
 
 export default function Home() {
   const [flipMemory, setFlipMemory] = useState(false);
@@ -13,6 +13,7 @@ export default function Home() {
 
   return (
     <main className="home">
+      <VolumeIcon/>
       <section className="hero">
         <h2>Welcome to SoftLeaves</h2>
         <p>Your accessible interactive experiences start here.</p>
@@ -22,8 +23,9 @@ export default function Home() {
         <div
           className={`card ${flipMemory ? "rotated" : ""}`}
           onClick={() => setFlipMemory(!flipMemory)}
-        >
-          <div className="card-content">
+         role="button"
+          aria-label={flipMemory ? "Memory game card flipped, click to see front" : "Memory game card, click to play"}>
+          <div className="card-content" role="button">
             {!flipMemory ? (
               <>
                 <h3>Memory Game</h3>
@@ -45,6 +47,8 @@ export default function Home() {
         <div
           className={`card ${flipPuzzle ? "rotated" : ""}`}
           onClick={() => setFlipPuzzle(!flipPuzzle)}
+          role="button"
+          aria-label={flipPuzzle? "Puzzle card flipped, click to se front of the card" : "Puzzle Card, click to play"}
         >
           <div className="card-content">
             {!flipPuzzle ? (
@@ -65,13 +69,16 @@ export default function Home() {
         <div
           className={`card ${flipSensory ? "rotated" : ""}`}
           onClick={() => setFlipSensory(!flipSensory)}
+          role="button"
+          aria-label={flipSensory? "Sensory mode card flipped, click to see front of the card" : "Sensory mode, click to enter"}
         >
           <div className="card-content">
             {!flipSensory ? (
               <div>
                 <h3>Sensory Mode</h3>
                 <p>
-                  Enjoy a soothing autumn tree animation with falling leaves and relaxing sound.
+                  Enjoy a soothing autumn tree animation with falling leaves and
+                  relaxing sound.
                 </p>
               </div>
             ) : (

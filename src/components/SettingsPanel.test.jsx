@@ -12,8 +12,8 @@ const renderWithProvider = (component) => {
   );
 };
 
-describe('SettingsPanel - Accessibilità', () => {
-  it('non deve avere violazioni di accessibilità', async () => {
+describe('SettingsPanel - Accessibility', () => {
+  it('checks for accessibility', async () => {
     const { container } = renderWithProvider(<SettingsPanel />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();

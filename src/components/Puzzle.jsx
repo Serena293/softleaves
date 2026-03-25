@@ -3,6 +3,7 @@ import PiecesPanel from "./PiecesPanel";
 import Board from "./Board";
 import "./styles/Puzzle.css";
 import SettingsPanel from "./SettingsPanel";
+import VolumeIcon from "./VolumeIcon";
 
 const initialPieces = Array.from({ length: 9 }, (_, i) => ({
   id: i,
@@ -95,6 +96,10 @@ export default function Puzzle() {
     <>
    <div className="div-settings-panel">
     <SettingsPanel/>
+    </div>
+      <div className="volume-div">
+      <VolumeIcon/>
+
     </div>
       {!isCompleted && (
         <div className="puzzle-title">

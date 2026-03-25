@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./styles/MemoryGame.css";
 import MemoryGameCard from "./MemoryGameCard";
 import SettingsPanel from "./SettingsPanel";
-
+import VolumeIcon from "./VolumeIcon"
 const cardImages = [
   { src: "/images/clouds.png", marched: false },
   { src: "/images/lightining.png", marched: false },
@@ -86,9 +86,14 @@ export default function MemoryGame() {
     <div className="div-settings-panel">
     <SettingsPanel />
     </div>
+    <div className="volume-div">
+      <VolumeIcon/>
+
+    </div>
     <section className="main-section">
       <h1>Memory Game</h1>
-      <button onClick={shuffleCards}>New Game</button>
+      <button onClick={shuffleCards}
+       aria-label="Start a new memory game">New Game</button>
       <div className="card-grid">
         {cards.map((card) => (
           <MemoryGameCard
@@ -100,7 +105,7 @@ export default function MemoryGame() {
         ))}
       </div>
       <div>
-        <p>Turn played: {turns}</p>
+        <p aria-live="polite">Turn played: {turns}</p>
       </div>
     </section>
     

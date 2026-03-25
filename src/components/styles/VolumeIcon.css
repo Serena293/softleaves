@@ -1,0 +1,28 @@
+.volume-icon-wrapper {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.volume-icon {
+  font-size: 1.5rem;
+  color: #ff8b5a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  margin-top: 1rem;
+}
+
+.volume-icon:hover {
+  transform: scale(1.1);
+  color: #ffb88c;
+}
+
+@media (min-width: 768px) {
+  .volume-div {
+    display: none;
+  }
+}
