@@ -64,7 +64,7 @@
 /* When panel is closed, move toggle button up */
 .sensory-controls.closed + .toggle-panel-btn {
   margin-top: 0;
-  transform: translateY(-400%);
+  transform: translateY(-320%);
 }
 
 .input-controls {

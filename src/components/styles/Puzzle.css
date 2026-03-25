@@ -21,6 +21,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   padding: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 .pieces-div,

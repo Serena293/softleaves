@@ -3,12 +3,15 @@ import { render } from '@testing-library/react';
 import { axe } from 'vitest-axe';
 import { BrowserRouter } from 'react-router-dom';
 import Home from './Home';
+import { AudioProvider } from '../context/AudioProvider';
 
 const renderWithRouter = (component) => {
   return render(
+    <AudioProvider>
     <BrowserRouter>
       {component}
     </BrowserRouter>
+    </AudioProvider>
   );
 };
 

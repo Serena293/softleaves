@@ -99,12 +99,13 @@ export default function Puzzle() {
     </div>
       <div className="volume-div">
       <VolumeIcon/>
-
     </div>
       {!isCompleted && (
         <div className="puzzle-title">
           <h1>Puzzle</h1>
           <p>Select a piece, then place it on the board</p>
+          <button onClick={handleReset}
+          aria-label="Press to start over">Start over</button>
         </div>
       )}
 
@@ -156,7 +157,7 @@ export default function Puzzle() {
                 alt="Completed puzzle"
                 className="completed-image"
               />
-              <button onClick={handleReset}>Reset Puzzle</button>
+              <button onClick={handleReset} aria-label="Press to play again">Reset Puzzle</button>
             </div>
           )}
         </div>
