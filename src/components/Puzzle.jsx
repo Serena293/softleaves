@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PiecesPanel from "./PiecesPanel";
 import Board from "./Board";
-import "./Puzzle.css";
+import "./styles/Puzzle.css";
 import SettingsPanel from "./SettingsPanel";
 
 const initialPieces = Array.from({ length: 9 }, (_, i) => ({

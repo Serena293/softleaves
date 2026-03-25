@@ -1,6 +1,6 @@
 // src/components/Tree.jsx
-import React from "react";
-import "./Tree.css";
+
+import "./styles/Tree.css";
 
 export default function Tree({
   foliageColor = "green",

@@ -1,4 +1,4 @@
-import "./PiecesPanel.css"
+import "./styles/PiecesPanel.css"
 
 export default function PiecesPanel({
   pieces,

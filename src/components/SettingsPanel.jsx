@@ -1,4 +1,4 @@
-import "./SettingsPanel.css";
+import "./styles/SettingsPanel.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useAudio } from "../context/useAudio";
@@ -59,7 +59,7 @@ export default function SettingsPanel({
         </label>
       </div>
 
-      <button className="toggle-panel-btn" onClick={togglePanel}>
+      <button className="toggle-panel-btn" onClick={togglePanel} aria-label={panelOpen ? "Close settings panel" : "Open settings panel"}>
         <FontAwesomeIcon icon={panelOpen ? faAngleDown : faAngleUp} />
       </button>
     </div>

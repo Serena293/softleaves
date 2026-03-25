@@ -1,4 +1,4 @@
-import "./SensoryMode.css";
+import "./styles/SensoryMode.css";
 import SettingsPanel from "./SettingsPanel";
 import leaf1 from "../../public/images/sensory/leaf1.png";
 import leaf2 from "../../public/images/sensory/leaf2.png";

@@ -1,4 +1,4 @@
-import "./Board.css";
+import "./styles/Board.css";
 
 export default function Board({ board, onPlacePiece, onSelectPiece, selectedPiece }) {
   return (

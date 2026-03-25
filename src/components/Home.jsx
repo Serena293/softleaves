@@ -1,12 +1,10 @@
-// src/components/Home.jsx
-import React from "react";
-import "./Home.css";
+import "./styles/Home.css";
 import Tree from "./Tree";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SensoryMode from "./SensoryMode";
 import Puzzle from "./Puzzle";
-import MemoryGame from "./MemoryGame";
+
 
 export default function Home() {
   const [flipMemory, setFlipMemory] = useState(false);

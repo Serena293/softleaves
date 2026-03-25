@@ -1,5 +1,5 @@
 // src/components/MemoryGameCard.jsx
-import "./MemoryGameCard.css";
+import "./styles/MemoryGameCard.css";
 
 export default function MemoryGameCard({ card, handleChoice, flipped}) {
     const handleClick = () => {

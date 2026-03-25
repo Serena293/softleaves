@@ -1,6 +1,6 @@
 // src/components/MemoryGame.jsx
 import { useEffect, useState } from "react";
-import "./MemoryGame.css";
+import "./styles/MemoryGame.css";
 import MemoryGameCard from "./MemoryGameCard";
 import SettingsPanel from "./SettingsPanel";
 

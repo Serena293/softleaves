@@ -7,7 +7,7 @@ export function AudioProvider({ children }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [stopOnNavigation, setStopOnNavigation] = useState(true);
 
-  // Ref che contiene sempre l’ultimo valore della checkbox
+  
   const stopOnNavigationRef = useRef(stopOnNavigation);
 
   useEffect(() => {
